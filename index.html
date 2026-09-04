@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8fafc" />
+    <meta
+      name="description"
+      content="De-occluding broadband metalens: a depth–wavelength-symmetry-guided camera for obstruction-free broadband imaging. Nature Communications, 2026."
+    />
+    <meta
+      name="keywords"
+      content="metalens, computational imaging, de-occlusion, broadband imaging, depth-wavelength symmetry, meta-optics"
+    />
+    <meta name="author" content="Seungwoo Yoon, Dohyun Kang, Eunsue Choi, and collaborators" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="POSTECH Computational Imaging" />
+    <meta property="og:title" content="De-occluding broadband metalens" />
+    <meta property="og:url" content="https://puostyoon.github.io/de-occluding-broadband-metalens-project-page/" />
+    <meta
+      property="og:description"
+      content="A compact learned metalens that rejects nearby obstructions while preserving broadband images of distant scenes."
+    />
+    <meta property="og:image" content="https://puostyoon.github.io/de-occluding-broadband-metalens-project-page/assets/derived/social-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="De-occluding broadband metalens" />
+    <meta name="twitter:image" content="https://puostyoon.github.io/de-occluding-broadband-metalens-project-page/assets/derived/social-preview.png" />
+    <meta name="citation_title" content="De-occluding broadband metalens" />
+    <meta name="citation_publication_date" content="2026" />
+    <meta name="citation_journal_title" content="Nature Communications" />
+    <meta name="citation_doi" content="10.1038/s41467-026-76606-0" />
+    <title>De-occluding broadband metalens</title>
+    <link rel="canonical" href="https://puostyoon.github.io/de-occluding-broadband-metalens-project-page/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/bulma.min.css" />
+    <link rel="stylesheet" href="assets/css/template-base.css" />
+    <link rel="stylesheet" href="assets/css/style.css?v=20260904a" />
+    <script defer src="assets/js/fontawesome.all.min.js"></script>
+    <script defer src="assets/js/main.js?v=20260904a"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "De-occluding broadband metalens",
+        "datePublished": "2026-08-15",
+        "publisher": { "@type": "Organization", "name": "Nature Communications" },
+        "url": "https://www.nature.com/articles/s41467-026-76606-0",
+        "identifier": "https://doi.org/10.1038/s41467-026-76606-0",
+        "isAccessibleForFree": true
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <button class="scroll-to-top" type="button" data-scroll-top aria-label="Scroll to top" title="Scroll to top">
+      <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <main id="main-content">
+      <section class="hero publication-header" id="top">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title">De-occluding broadband metalens</h1>
+
+                <div class="is-size-5 publication-authors" aria-label="Authors">
+                  <span class="author-block"><a href="https://sites.google.com/view/seungwoo-yoon/" target="_blank" rel="noreferrer">Seungwoo Yoon</a><sup>1*</sup>,</span>
+                  <span class="author-block"><a href="https://scholar.google.com/citations?hl=en&amp;user=pPKLdM0AAAAJ" target="_blank" rel="noreferrer">Dohyun Kang</a><sup>2*</sup>,</span>
+                  <span class="author-block"><a href="https://eschoi.com/" target="_blank" rel="noreferrer">Eunsue Choi</a><sup>1</sup>,</span>
+                  <span class="author-block"><a href="https://sohyun-l.github.io/" target="_blank" rel="noreferrer">Sohyun Lee</a><sup>3</sup>,</span>
+                  <span class="author-block"><a href="https://yeon07.github.io/" target="_blank" rel="noreferrer">Seoyeon Kim</a><sup>3</sup>,</span>
+                  <span class="author-block"><a href="https://www.mchoilab.com/" target="_blank" rel="noreferrer">Minho Choi</a><sup>4,5</sup>,</span>
+                  <span class="author-block"><a href="https://scholar.google.com/scholar?q=Hyeonsu+Heo+metalens" target="_blank" rel="noreferrer">Hyeonsu Heo</a><sup>2</sup>,</span>
+                  <span class="author-block"><a href="https://dhsh.in/" target="_blank" rel="noreferrer">Dong-Ha Shin</a><sup>3</sup>,</span>
+                  <span class="author-block"><a href="https://suhakwak.github.io/" target="_blank" rel="noreferrer">Suha Kwak</a><sup>3</sup>,</span>
+                  <span class="author-block"><a href="https://people.ece.uw.edu/majumdar/" target="_blank" rel="noreferrer">Arka Majumdar</a><sup>4,6</sup>,</span>
+                  <span class="author-block"><a href="https://photonics.postech.ac.kr/" target="_blank" rel="noreferrer">Junsuk Rho</a><sup>2,7,8,9,10&dagger;</sup>,</span>
+                  <span class="author-block"><a href="https://www.shbaek.com/" target="_blank" rel="noreferrer">Seung-Hwan Baek</a><sup>1&dagger;</sup></span>
+                </div>
+
+                <div class="publication-affiliation" aria-label="Institutional affiliations">
+                  <span><sup>1,2,3,7,8</sup> POSTECH</span>
+                  <span><sup>4,6</sup> University of Washington</span>
+                  <span><sup>5</sup> UNIST</span>
+                  <span><sup>9</sup> POSCO-POSTECH-RIST Convergence Research Center</span>
+                  <span><sup>10</sup> National Institute of Nanomaterials Technology</span>
+                </div>
+                <div class="publication-venue">Nature Communications · 2026</div>
+                <p class="eql-cntrb"><sup>*</sup> Equal contribution · <sup>&dagger;</sup> Corresponding authors</p>
+
+                <details class="affiliation-details">
+                  <summary>Full affiliations</summary>
+                  <ol>
+                    <li>Department of Computer Science and Engineering, POSTECH</li>
+                    <li>Department of Mechanical Engineering, POSTECH</li>
+                    <li>Graduate School of Artificial Intelligence, POSTECH</li>
+                    <li>Department of Electrical and Computer Engineering, University of Washington</li>
+                    <li>Department of Electrical Engineering, UNIST</li>
+                    <li>Department of Physics, University of Washington</li>
+                    <li>Department of Chemical Engineering, POSTECH</li>
+                    <li>Department of Electrical Engineering, POSTECH</li>
+                    <li>POSCO-POSTECH-RIST Convergence Research Center for Flat Optics and Metaphotonics</li>
+                    <li>National Institute of Nanomaterials Technology</li>
+                  </ol>
+                </details>
+
+                <div class="publication-links" aria-label="Project resources">
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark" href="https://www.nature.com/articles/s41467-026-76606-0" target="_blank" rel="noreferrer">
+                      <span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark" href="https://www.nature.com/articles/s41467-026-76606-0#Sec18" target="_blank" rel="noreferrer">
+                      <span class="icon"><i class="fas fa-paperclip" aria-hidden="true"></i></span><span>Supplementary</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark" href="https://github.com/puostyoon/de-occluding-broadband-metalens-public" target="_blank" rel="noreferrer">
+                      <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span><span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark" href="https://drive.google.com/drive/folders/1siNWBBHfKFFi4170p5rpSbTFk9WyrfSp?usp=sharing" target="_blank" rel="noreferrer">
+                      <span class="icon"><i class="fas fa-database" aria-hidden="true"></i></span><span>Dataset</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2601.19403" target="_blank" rel="noreferrer">
+                      <span class="icon"><i class="fas fa-archive" aria-hidden="true"></i></span><span>arXiv</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero teaser" aria-labelledby="teaser-caption">
+        <div class="container is-widescreen">
+          <div class="hero-body">
+            <figure class="publication-banner teaser-banner">
+              <img src="assets/derived/teaser.png?v=20260903d" alt="Website teaser showing an obstructed capture, the split-spectrum metalens, the compact prototype, and the recovered scene" width="1600" height="900" fetchpriority="high" data-lightbox />
+            </figure>
+            <h2 class="subtitle has-text-centered" id="teaser-caption">
+              The learned metalens keeps far-scene light in the filter pass bands while shifting near-depth obstruction light into stop bands, preserving real scene evidence in a compact camera.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hero is-light" id="overview" aria-labelledby="abstract-title">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3" id="abstract-title">Abstract</h2>
+              <div class="content has-text-justified abstract-copy">
+                <p>
+                  Obstructions such as raindrops, fences, or dust degrade images, especially when cleaning is infeasible. Conventional approaches use bulky compound-lens arrays or computational inpainting, compromising compactness or fidelity. Metalenses promise compact imaging, but achieving both broadband and obstruction-free imaging remains challenging because a metalens cannot simultaneously focus distant scenes and defocus nearby occlusions across a broadband spectrum.
+                </p>
+                <p>
+                  We introduce a de-occluding broadband metalens that suppresses obstructions while enabling broadband imaging with an optimized metalens design map. A multi-band spectral filter divides each color channel into pass and stop bands: far-scene light is focused through the pass bands, while focused light from nearby obstructions shifts into the stop bands and is rejected. A neural network further enhances the captured image.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section publication-body" id="publication" aria-labelledby="publication-title">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered" id="publication-title">Publication</h2>
+          <div class="publication-layout">
+            <a class="publication-cover" href="https://www.nature.com/articles/s41467-026-76606-0" target="_blank" rel="noreferrer" aria-label="Open the peer-reviewed Nature Communications article">
+              <span class="publication-cover-journal">Nature Communications</span>
+              <span class="publication-cover-placeholder" role="img" aria-label="Journal cover image placeholder">
+                <span>Journal cover</span>
+                <strong>Image forthcoming</strong>
+                <small>Placeholder</small>
+              </span>
+              <span class="publication-cover-action">View article <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </a>
+            <div class="publication-cards">
+              <a href="https://www.nature.com/articles/s41467-026-76606-0" target="_blank" rel="noreferrer">
+                <span>Peer-reviewed article</span><strong>Nature Communications</strong><small>Published 15 August 2026</small>
+              </a>
+              <a href="https://doi.org/10.1038/s41467-026-76606-0" target="_blank" rel="noreferrer">
+                <span>Permanent record</span><strong>10.1038/s41467-026-76606-0</strong><small>Open-access DOI</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hero is-light" id="results" aria-labelledby="results-title">
+        <div class="container is-widescreen">
+          <h2 class="title is-3 has-text-centered" id="results-title">Key Results</h2>
+          <p class="section-lead has-text-centered">
+            Source-verified optical captures show how the proposed system suppresses nearby obstructions and preserves evidence for downstream vision.
+          </p>
+
+          <div class="key-visual-stack">
+            <article class="key-visual-card" data-scene="dirt">
+              <header>
+                <div><span>Real experiment &middot; dirt obstruction</span><h3>Recover the scene without hallucinating missing content</h3></div>
+                <p>The obstruction itself is shown first. The hyperbolic lens is designed at 532 nm, while the broadband baseline retains near-depth dirt. Our result approaches the unobstructed reference.</p>
+              </header>
+              <div class="key-visual-grid is-five">
+                <figure>
+                  <img src="assets/derived/dirt-obstruction.webp" alt="Dirt obstruction used in the real experiment" loading="lazy" data-lightbox />
+                  <figcaption><strong>Obstruction</strong><small>near-depth dirt</small></figcaption>
+                </figure>
+                <figure>
+                  <img src="assets/derived/dirt-hyperbolic.webp" alt="Hyperbolic metalens result under dirt obstruction, from a lens designed at 532 nanometers" loading="lazy" data-lightbox />
+                  <figcaption><strong>Hyperbolic</strong><small>designed at 532 nm</small></figcaption>
+                </figure>
+                <figure>
+                  <img src="assets/derived/dirt-broadband.webp" alt="Broadband metalens result with visible dirt obstruction" loading="lazy" data-lightbox />
+                  <figcaption><strong>Broadband</strong><small>non-de-occluding</small></figcaption>
+                </figure>
+                <figure class="is-ours">
+                  <img src="assets/derived/dirt-ours.webp" alt="Proposed de-occluding broadband metalens result with the dirt obstruction suppressed" loading="lazy" data-lightbox />
+                  <figcaption><strong>Ours</strong><small>de-occluding</small></figcaption>
+                </figure>
+                <figure>
+                  <img src="assets/derived/dirt-ground-truth.webp" alt="Unobstructed ground-truth scene for the dirt experiment" loading="lazy" data-lightbox />
+                  <figcaption><strong>Ground truth</strong><small>compound-lens reference</small></figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <div class="key-vision-stack" aria-label="Representative downstream vision comparisons">
+              <article class="key-visual-card vision-comparison" data-task="visdrone">
+                <header>
+                  <div><span>Vision task &middot; object detection</span><h3>VisDrone</h3></div>
+                  <p>Each optical input is paired with its detector prediction. The digital reference is paired with the dataset ground-truth annotation.</p>
+                </header>
+                <div class="vision-method-grid">
+                  <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/visdrone-gt-input.webp" alt="Original digital VisDrone reference image" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/visdrone-gt-output.webp" alt="Dataset ground-truth annotations for VisDrone" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                  <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/visdrone-hyperbolic-input.webp" alt="VisDrone input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/visdrone-hyperbolic-output.webp" alt="Object-detection prediction from the hyperbolic metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/visdrone-broadband-input.webp" alt="VisDrone input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/visdrone-broadband-output.webp" alt="Object-detection prediction from the broadband metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/visdrone-ours-input.webp" alt="VisDrone input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/visdrone-ours-output.webp" alt="Object-detection prediction from the proposed metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                </div>
+              </article>
+
+              <article class="key-visual-card vision-comparison" data-task="kvasir">
+                <header>
+                  <div><span>Vision task &middot; medical segmentation</span><h3>Kvasir-SEG</h3></div>
+                  <p>Polyp-segmentation predictions are compared under identical scene content and obstruction conditions.</p>
+                </header>
+                <div class="vision-method-grid">
+                  <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/kvasir-gt-input.webp" alt="Original digital Kvasir-SEG reference image" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/kvasir-gt-output.webp" alt="Ground-truth Kvasir-SEG mask" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                  <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/kvasir-hyperbolic-input.webp" alt="Kvasir-SEG input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/kvasir-hyperbolic-output.webp" alt="Polyp-segmentation prediction from the hyperbolic metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/kvasir-broadband-input.webp" alt="Kvasir-SEG input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/kvasir-broadband-output.webp" alt="Polyp-segmentation prediction from the broadband metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/kvasir-ours-input.webp" alt="Kvasir-SEG input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/kvasir-ours-output.webp" alt="Polyp-segmentation prediction from the proposed metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                </div>
+              </article>
+
+              <article class="key-visual-card vision-comparison" data-task="cityscapes">
+                <header>
+                  <div><span>Vision task &middot; semantic segmentation</span><h3>Cityscapes</h3></div>
+                  <p>Semantic labels remain spatially coherent when the proposed optics suppress the near-depth obstruction before inference.</p>
+                </header>
+                <div class="vision-method-grid">
+                  <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/cityscapes-gt-input.webp" alt="Original digital Cityscapes reference image" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/cityscapes-gt-output.webp" alt="Ground-truth Cityscapes semantic label" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                  <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/cityscapes-hyperbolic-input.webp" alt="Cityscapes input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/cityscapes-hyperbolic-output.webp" alt="Semantic-segmentation prediction from the hyperbolic metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/cityscapes-broadband-input.webp" alt="Cityscapes input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/cityscapes-broadband-output.webp" alt="Semantic-segmentation prediction from the broadband metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/cityscapes-ours-input.webp" alt="Cityscapes input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/cityscapes-ours-output.webp" alt="Semantic-segmentation prediction from the proposed metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <p class="figure-note has-text-centered">All panels are source-verified crops from Figures 5 and 6; no generated or inpainted content is used.</p>
+        </div>
+      </section>
+
+      <section class="section hero is-light" id="videos" aria-labelledby="videos-title">
+        <div class="container is-widescreen">
+          <h2 class="title is-3 has-text-centered" id="videos-title">Videos</h2>
+          <p class="section-lead has-text-centered">Because our method operates in a single shot, it naturally extends to video imaging.</p>
+          <div class="video-strip" aria-label="Supplementary videos">
+            <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/dynamic-obstruction.png" aria-label="Dynamic obstruction supplementary video"><source src="assets/video/dynamic-obstruction.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/dynamic-obstruction.mp4" download>Download MP4</a></div></div><figcaption><strong>Dynamic obstruction</strong></figcaption></figure>
+            <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/cube.png" aria-label="Cube scene supplementary video"><source src="assets/video/cube.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/cube.mp4" download>Download MP4</a></div></div><figcaption><strong>Cube scene</strong></figcaption></figure>
+            <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/flower.png" aria-label="Flower scene supplementary video"><source src="assets/video/flower.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/flower.mp4" download>Download MP4</a></div></div><figcaption><strong>Flower scene</strong></figcaption></figure>
+            <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/frog.png" aria-label="Frog scene supplementary video"><source src="assets/video/frog.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/frog.mp4" download>Download MP4</a></div></div><figcaption><strong>Frog scene</strong></figcaption></figure>
+            <figure class="is-ultrawide"><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/car-mounted.png" aria-label="Car-mounted compact-camera supplementary video"><source src="assets/video/car-mounted.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/car-mounted.mp4" download>Download MP4</a></div></div><figcaption><strong>Car-mounted compact camera</strong><span>Outdoor input video and semantic predictions captured from a moving vehicle.</span></figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section publication-body" id="method" aria-labelledby="method-title">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered" id="method-title">Depth&ndash;Wavelength Symmetry</h2>
+          <p class="section-lead has-text-centered">
+            For a diffractive lens, a coupled change in source wavelength and depth can produce nearly invariant PSFs.
+          </p>
+
+          <div class="symmetry-intuition-player" data-symmetry-intuition>
+            <div class="intuition-visual" id="symmetry-intuition-panel" role="tabpanel" tabindex="0" aria-labelledby="symmetry-intuition-tab-0" aria-describedby="symmetry-intuition-title symmetry-intuition-description">
+              <img id="symmetry-intuition-frame" data-intuition-frame src="assets/derived/symmetry-intuition-wavelength.png?v=20260904a" alt="A wavelength longer than the design wavelength causes a focal-front shift in a diffractive lens" />
+              <span class="sr-only" id="symmetry-intuition-scroll-hint" data-intuition-scroll-hint>On small screens, scroll horizontally to inspect the complete focal-intensity map.</span>
+            </div>
+            <div class="intuition-copy-panel" aria-live="polite">
+              <div class="method-count" data-intuition-count>01 / 03</div>
+              <h3 id="symmetry-intuition-title" data-intuition-title>A longer wavelength shifts the focus forward</h3>
+              <p id="symmetry-intuition-description" data-intuition-copy>For &lambda; &gt; &lambda;<sub>d</sub>, chromatic phase mismatch produces a focal-front shift relative to the design wavelength.</p>
+            </div>
+            <div class="intuition-tabs" role="tablist" aria-label="Depth–wavelength intuition steps">
+              <button id="symmetry-intuition-tab-0" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="symmetry-intuition-panel" data-intuition-step="0" data-intuition-image="assets/derived/symmetry-intuition-wavelength.png?v=20260904a" data-intuition-alt="A wavelength longer than the design wavelength causes a focal-front shift in a diffractive lens" data-intuition-heading="A longer wavelength shifts the focus forward" data-intuition-description="For &lambda; &gt; &lambda;d, chromatic phase mismatch produces a focal-front shift relative to the design wavelength."><span>01</span>Wavelength shift</button>
+              <button id="symmetry-intuition-tab-1" type="button" role="tab" aria-selected="false" aria-controls="symmetry-intuition-panel" tabindex="-1" data-intuition-step="1" data-intuition-image="assets/derived/symmetry-intuition-depth.png?v=20260904a" data-intuition-alt="The spherical wave from a near-depth point source compensates chromatic phase mismatch and produces an opposing focal-back shift" data-intuition-heading="A near-depth wave shifts the focus back" data-intuition-description="The spherical phase of a near-depth point source counterbalances that mismatch, producing the opposing focal-back shift and a similar PSF."><span>02</span>Near-depth compensation</button>
+              <button id="symmetry-intuition-tab-2" type="button" role="tab" aria-selected="false" aria-controls="symmetry-intuition-panel" tabindex="-1" data-intuition-step="2" data-intuition-image="assets/derived/symmetry-intuition-validation.png?v=20260904a" data-intuition-alt="Focal point intensity versus source wavelength and depth for a hyperbolic metalens designed at 450 nm, with the depth–wavelength symmetry model overlaid as a red dotted curve and a magnified inset." data-intuition-heading="The model predicts the focal-intensity map" data-intuition-description="For a hyperbolic metalens designed at λd = 450 nm, the predicted depth–wavelength correspondence agrees with the focal-intensity distribution computed using the Rayleigh–Sommerfeld diffraction integral."><span>03</span>Model validation</button>
+            </div>
+          </div>
+
+          <aside class="novelty-callout" aria-labelledby="symmetry-model-title">
+            <div class="novelty-copy">
+              <span>Core contribution</span>
+              <h3 id="symmetry-model-title">The first analytical model of depth&ndash;wavelength symmetry</h3>
+              <p>We explicitly relate a wavelength shift, &#x0394;&#x03BB;, to the corresponding source-depth shift, &#x0394;z, for a diffractive lens.</p>
+            </div>
+            <div class="equation" aria-label="Depth–wavelength symmetry model">
+              <math display="block" aria-label="Delta lambda equals lambda sub d times f, multiplied by one over z minus one over z minus delta z">
+                <mrow>
+                  <mi>&#x0394;</mi><mi>&#x03BB;</mi><mo>=</mo>
+                  <msub><mi>&#x03BB;</mi><mi>d</mi></msub><mi>f</mi>
+                  <mo>(</mo>
+                  <mfrac><mn>1</mn><mi>z</mi></mfrac>
+                  <mo>&minus;</mo>
+                  <mfrac><mn>1</mn><mrow><mi>z</mi><mo>&minus;</mo><mi>&#x0394;</mi><mi>z</mi></mrow></mfrac>
+                  <mo>)</mo>
+                </mrow>
+              </math>
+            </div>
+          </aside>
+
+          <h3 class="subsection-title">From depth&ndash;wavelength symmetry to split-spectrum filtering</h3>
+          <div class="method-player" data-method-player>
+            <div class="method-visual" id="method-visual-panel" role="tabpanel" tabindex="0" aria-labelledby="method-tab-0" aria-describedby="method-step-title method-step-description">
+              <img id="method-frame" src="assets/derived/psf-scan-construction.png?v=20260903d" alt="Step 1: monochromatic far-depth PSFs accumulate from lambda 1 through lambda 9, then combine into an x-lambda PSF scan" />
+              <span class="sr-only" id="method-scroll-hint">On small screens, scroll horizontally to inspect the complete recap figure.</span>
+            </div>
+            <div class="method-copy" aria-live="polite">
+              <div class="method-count" id="method-count">01 / 04</div>
+              <h3 id="method-step-title">Construct the far-depth PSF wavelength scan</h3>
+              <p id="method-step-description">Stack the monochromatic far-depth PSFs across wavelength to form the x&ndash;&lambda; scan.</p>
+            </div>
+            <div class="method-tabs" role="tablist" aria-label="Split-spectrum method steps">
+              <button id="method-tab-0" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="method-visual-panel" data-method-step="0" data-method-image="assets/derived/psf-scan-construction.png?v=20260903d" data-method-motion-image="assets/derived/psf-scan-build.webp?v=20260904a" data-method-alt="Step 1: monochromatic far-depth PSFs accumulate from lambda 1 through lambda 9, then combine into an x-lambda PSF scan" data-method-heading="Construct the far-depth PSF wavelength scan" data-method-description="Stack the monochromatic far-depth PSFs across wavelength to form the x-lambda scan."><span>01</span>Build the x&ndash;&lambda; scan</button>
+              <button id="method-tab-1" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="1" data-method-image="assets/derived/psf-scan-shift.png?v=20260903d" data-method-alt="Step 2: a far-depth PSF at one wavelength reappears as a similar near-depth PSF at a shifted wavelength" data-method-heading="Relate the near- and far-depth scans" data-method-description="A far-depth PSF at wavelength lambda reappears as a similar near-depth PSF at the shifted wavelength lambda plus delta lambda."><span>02</span>Relate near and far</button>
+              <button id="method-tab-2" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="2" data-method-image="assets/derived/multiband-rejection.png?v=20260903d" data-method-alt="Step 3: pass bands transmit focused far-depth light while stop bands reject the shifted near-depth focus" data-method-heading="Reject the shifted near-depth focus" data-method-description="Pass bands transmit focused far-depth light; the corresponding focused near-depth light shifts into stop bands and is rejected."><span>03</span>Filter shifted focus</button>
+              <button id="method-tab-3" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="3" data-method-image="assets/derived/depth-wavelength-recap.png?v=20260903m" data-method-alt="Step 4: cropped PowerPoint recap showing the complete depth-wavelength symmetry relationship and split-spectrum optical design" data-method-heading="Depth&ndash;wavelength symmetry" data-method-description="Spectrum splitting prevents sharp far-depth focusing behavior from transferring to near depth, enabling sharp far-depth PSFs and defocused near-depth PSFs across the visible spectrum."><span>04</span>Recap</button>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Optimizing the metalens design map</h3>
+          <div class="method-grid">
+            <figure class="figure-panel"><img src="assets/derived/method-pipeline.png?v=20260903d" alt="Differentiable optimization pipeline for the metalens design map theta of x and y using PSF and image simulators" loading="lazy" data-lightbox /><figcaption><strong>Metalens optimization pipeline.</strong> Only the meta-atom orientation map &theta;(x, y), the metalens design map, is optimized through differentiable PSF and image simulators.</figcaption></figure>
+            <figure class="figure-panel"><img src="assets/derived/method-progress.png?v=20260903d" alt="Simulated sensor images at steps 50, 200, and 3200 during optimization of the metalens design map" loading="lazy" data-lightbox /><figcaption><strong>Optimization convergence.</strong> As &theta;(x, y) converges, the simulated capture preserves a sharp far-depth scene while blurring near-depth obstructions.</figcaption></figure>
+            <figure class="figure-panel"><img src="assets/derived/method-psf.png?v=20260903d" alt="Simulated x-lambda scans of far- and near-depth PSFs from the learned metalens design, with pass bands highlighted" loading="lazy" data-lightbox /><figcaption><strong>Learned far- and near-depth PSF scans.</strong> In the pass bands, the learned design produces sharp far-depth PSFs and blurry near-depth PSFs; the behavior reverses in the stop bands.</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hero is-light" id="fabrication" aria-labelledby="fabrication-title">
+        <div class="container is-widescreen">
+          <h2 class="title is-3 has-text-centered" id="fabrication-title">Fabrication and Characterization</h2>
+          <p class="section-lead has-text-centered">The visible-light SiN<sub>x</sub> metalens was fabricated, and its far- and near-depth PSFs were measured from 430 to 645 nm in 5 nm steps.</p>
+          <div class="characterization-grid">
+            <figure class="figure-panel characterization-panel characterization-overview">
+              <div class="characterization-scroll" tabindex="0" role="region" aria-label="Fabrication overview and three fabricated metalenses; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/fabrication-overview.png?v=20260903e" alt="Top-down and tilted scanning electron micrographs followed by photographs of the de-occluding broadband, broadband baseline, and hyperbolic-phase metalenses" loading="lazy" data-lightbox /></div>
+            </figure>
+            <figure class="figure-panel characterization-panel is-spectral"><div class="characterization-scroll" tabindex="0" role="region" aria-label="Measured far- and near-depth spectral PSF scans; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/psf-spectral-scan.png?v=20260903d" alt="Measured normalized x-lambda PSF scans at far and near depths for the three fabricated metalenses" loading="lazy" data-lightbox /></div><figcaption><strong>Measured PSF x&ndash;&lambda; scans, normalized to total intensity.</strong> Pass bands are highlighted; focused far-depth light is transmitted, while focused near-depth light is filtered out.</figcaption></figure>
+            <figure class="figure-panel characterization-panel is-detail"><div class="characterization-scroll" tabindex="0" role="region" aria-label="Measured two-dimensional PSFs; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/psf-wavelength-detail.png?v=20260903d" alt="Measured two-dimensional PSFs from 445 to 640 nanometers for the three metalenses at far and near depths" loading="lazy" data-lightbox /></div><figcaption><strong>Measured 2D PSFs across wavelength and depth, normalized to peak intensity.</strong> The stop-band PSFs of Ours are marked with black boxes.</figcaption></figure>
+          </div>
+          <div class="spec-strip" aria-label="Optical specifications">
+            <span><strong>4 mm</strong> focal length</span><span><strong>2.516 mm</strong> aperture</span><span><strong>B 457 / G 530 / R 628 nm</strong> pass-band centers</span><span><strong>B 22 / G 20 / R 28 nm</strong> pass-band bandwidths</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section publication-body" id="quantitative" aria-labelledby="quantitative-title">
+        <div class="container is-widescreen">
+          <h2 class="title is-3 has-text-centered" id="quantitative-title">Quantitative Results</h2>
+
+          <h3 class="subsection-title metrics-subtitle">Image reconstruction</h3>
+          <div class="image-metric-grid">
+            <article class="metric-card" data-metric="static-psnr">
+              <header><div><span>Static obstruction</span><h4>Reconstruction PSNR</h4></div><small>Scale: 0-25 dB</small></header>
+              <div class="single-metric-chart" aria-label="Static obstructed reconstruction PSNR in decibels">
+                <div class="single-metric-row"><span>Hyperbolic</span><i><b style="--value: 63.32%"></b></i><strong>15.83</strong></div>
+                <div class="single-metric-row"><span>Broadband</span><i><b style="--value: 75.16%"></b></i><strong>18.79</strong></div>
+                <div class="single-metric-row is-ours"><span>Ours</span><i><b style="--value: 83.76%"></b></i><strong>20.94</strong></div>
+              </div>
+            </article>
+
+            <article class="metric-card dynamic-table-card" data-metric="dynamic-sequence">
+              <header><div><span>21-frame sequence</span><h4>Dynamic reconstruction</h4></div><small>Mean over frames</small></header>
+              <div class="metric-table-wrap">
+                <table class="metric-table">
+                  <thead><tr><th scope="col">Method</th><th scope="col">PSNR &uarr;</th><th scope="col">SSIM &uarr;</th><th scope="col">LPIPS &darr;</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Hyperbolic</th><td>20.72</td><td>0.6640</td><td>0.5402</td></tr>
+                    <tr><th scope="row">Broadband</th><td>22.16</td><td>0.6938</td><td>0.5203</td></tr>
+                    <tr class="is-ours"><th scope="row">Ours</th><td>25.39</td><td>0.8016</td><td>0.4052</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="throughput-note"><strong>24.15 FPS</strong> network inference at FP16, batch 1, 512 &times; 512 on an RTX 6000 Ada.</p>
+            </article>
+          </div>
+
+          <div class="vision-metrics-heading">
+            <h3 class="subsection-title metrics-subtitle">Vision-task robustness</h3>
+            <div class="metric-legend" aria-label="Metric bar legend"><span><i class="is-clean"></i>Unobstructed</span><span><i class="is-obstructed"></i>Obstructed</span></div>
+          </div>
+          <div class="vision-metric-grid">
+            <article class="metric-card" data-metric="visdrone-map50">
+              <header><div><span>Object detection</span><h4>VisDrone mAP<sub>50</sub></h4></div><small>Scale: 0-25</small></header>
+              <div class="paired-metric-chart">
+                <div class="paired-metric-row"><div><strong>Hyperbolic</strong><span>21.75 / 3.50</span></div><div class="paired-bars"><i class="is-clean" style="--value: 87%"></i><i class="is-obstructed" style="--value: 14%"></i></div></div>
+                <div class="paired-metric-row"><div><strong>Broadband</strong><span>10.66 / 2.92</span></div><div class="paired-bars"><i class="is-clean" style="--value: 42.64%"></i><i class="is-obstructed" style="--value: 11.68%"></i></div></div>
+                <div class="paired-metric-row is-ours"><div><strong>Ours</strong><span>24.27 / 17.04</span></div><div class="paired-bars"><i class="is-clean" style="--value: 97.08%"></i><i class="is-obstructed" style="--value: 68.16%"></i></div></div>
+              </div>
+            </article>
+
+            <article class="metric-card" data-metric="kvasir-iou">
+              <header><div><span>Medical segmentation</span><h4>Kvasir-SEG IoU</h4></div><small>Scale: 0-100</small></header>
+              <div class="paired-metric-chart">
+                <div class="paired-metric-row"><div><strong>Hyperbolic</strong><span>80.80 / 34.72</span></div><div class="paired-bars"><i class="is-clean" style="--value: 80.80%"></i><i class="is-obstructed" style="--value: 34.72%"></i></div></div>
+                <div class="paired-metric-row"><div><strong>Broadband</strong><span>81.99 / 59.50</span></div><div class="paired-bars"><i class="is-clean" style="--value: 81.99%"></i><i class="is-obstructed" style="--value: 59.50%"></i></div></div>
+                <div class="paired-metric-row is-ours"><div><strong>Ours</strong><span>83.56 / 83.17</span></div><div class="paired-bars"><i class="is-clean" style="--value: 83.56%"></i><i class="is-obstructed" style="--value: 83.17%"></i></div></div>
+              </div>
+            </article>
+
+            <article class="metric-card" data-metric="cityscapes-miou">
+              <header><div><span>Semantic segmentation</span><h4>Cityscapes mIoU</h4></div><small>Scale: 0-100</small></header>
+              <div class="paired-metric-chart">
+                <div class="paired-metric-row"><div><strong>Hyperbolic</strong><span>60.01 / 46.66</span></div><div class="paired-bars"><i class="is-clean" style="--value: 60.01%"></i><i class="is-obstructed" style="--value: 46.66%"></i></div></div>
+                <div class="paired-metric-row"><div><strong>Broadband</strong><span>59.42 / 46.01</span></div><div class="paired-bars"><i class="is-clean" style="--value: 59.42%"></i><i class="is-obstructed" style="--value: 46.01%"></i></div></div>
+                <div class="paired-metric-row is-ours"><div><strong>Ours</strong><span>70.80 / 67.01</span></div><div class="paired-bars"><i class="is-clean" style="--value: 70.80%"></i><i class="is-obstructed" style="--value: 67.01%"></i></div></div>
+              </div>
+            </article>
+          </div>
+          <p class="metric-footnote">Each pair reports unobstructed / obstructed performance. Digital GT provides the reference image and label, not a comparable optical-method score.</p>
+        </div>
+      </section>
+
+      <section class="section publication-body" id="additional-results" aria-labelledby="additional-title">
+        <div class="container is-widescreen">
+          <h2 class="title is-3 has-text-centered" id="additional-title">Additional Results</h2>
+
+          <div class="supp-feature-stack">
+            <article class="supp-feature-card" data-source-figure="S30">
+              <header class="supp-feature-header">
+                <div><span>Printed DIV2K target &middot; dirt obstruction</span><h3>Mandala</h3></div>
+              </header>
+              <div class="result-tabs" data-result-tabs data-default-tab="reconstructed">
+                <div class="result-tablist" role="tablist" aria-label="Mandala result stage">
+                  <button id="mandala-tab-captured" type="button" role="tab" aria-selected="false" aria-controls="mandala-captured" tabindex="-1" data-result-tab="captured">Captured</button>
+                  <button id="mandala-tab-reconstructed" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="mandala-reconstructed" data-result-tab="reconstructed">Reconstructed</button>
+                </div>
+                <div id="mandala-captured" role="tabpanel" aria-labelledby="mandala-tab-captured" data-result-panel="captured" hidden>
+                  <div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Compound-lens GT</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-gt.webp" alt="Unobstructed compound-lens reference of the printed mandala target" loading="lazy" data-lightbox /><figcaption>Unobstructed reference</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-hyperbolic-captured.webp" alt="Raw mandala sensor capture through the hyperbolic metalens and dirt obstruction" loading="lazy" data-lightbox /><figcaption>Sensor capture</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-broadband-captured.webp" alt="Raw mandala sensor capture through the broadband metalens and dirt obstruction" loading="lazy" data-lightbox /><figcaption>Sensor capture</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-ours-captured.webp" alt="Raw mandala sensor capture through the proposed metalens and dirt obstruction" loading="lazy" data-lightbox /><figcaption>Sensor capture</figcaption></figure></div></div>
+                  </div>
+                </div>
+                <div id="mandala-reconstructed" role="tabpanel" aria-labelledby="mandala-tab-reconstructed" data-result-panel="reconstructed">
+                  <div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Compound-lens GT</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-gt.webp" alt="Unobstructed compound-lens reference of the printed mandala target" loading="lazy" data-lightbox /><figcaption>Unobstructed reference</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-hyperbolic-reconstructed.webp" alt="Mandala reconstruction from the hyperbolic metalens under dirt obstruction" loading="lazy" data-lightbox /><figcaption>Reconstruction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-broadband-reconstructed.webp" alt="Mandala reconstruction from the broadband metalens under dirt obstruction" loading="lazy" data-lightbox /><figcaption>Reconstruction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/print-mandala-ours-reconstructed.webp" alt="Mandala reconstruction from the proposed metalens under dirt obstruction" loading="lazy" data-lightbox /><figcaption>Reconstruction</figcaption></figure></div></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="supp-feature-card" data-source-figure="S31">
+              <header class="supp-feature-header">
+                <div><span>Printed DIV2K target &middot; fence obstruction</span><h3>Butterfly</h3></div>
+              </header>
+              <div class="result-tabs" data-result-tabs data-default-tab="reconstructed">
+                <div class="result-tablist" role="tablist" aria-label="Butterfly result stage">
+                  <button id="butterfly-tab-captured" type="button" role="tab" aria-selected="false" aria-controls="butterfly-captured" tabindex="-1" data-result-tab="captured">Captured</button>
+                  <button id="butterfly-tab-reconstructed" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="butterfly-reconstructed" data-result-tab="reconstructed">Reconstructed</button>
+                </div>
+                <div id="butterfly-captured" role="tabpanel" aria-labelledby="butterfly-tab-captured" data-result-panel="captured" hidden>
+                  <div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Compound-lens GT</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-gt.webp" alt="Unobstructed compound-lens reference of the printed butterfly target" loading="lazy" data-lightbox /><figcaption>Unobstructed reference</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-hyperbolic-captured.webp" alt="Raw butterfly sensor capture through the hyperbolic metalens and fence obstruction" loading="lazy" data-lightbox /><figcaption>Sensor capture</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-broadband-captured.webp" alt="Raw butterfly sensor capture through the broadband metalens and fence obstruction" loading="lazy" data-lightbox /><figcaption>Sensor capture</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-ours-captured.webp" alt="Raw butterfly sensor capture through the proposed metalens and fence obstruction" loading="lazy" data-lightbox /><figcaption>Sensor capture</figcaption></figure></div></div>
+                  </div>
+                </div>
+                <div id="butterfly-reconstructed" role="tabpanel" aria-labelledby="butterfly-tab-reconstructed" data-result-panel="reconstructed">
+                  <div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Compound-lens GT</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-gt.webp" alt="Unobstructed compound-lens reference of the printed butterfly target" loading="lazy" data-lightbox /><figcaption>Unobstructed reference</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-hyperbolic-reconstructed.webp" alt="Butterfly reconstruction from the hyperbolic metalens under fence obstruction" loading="lazy" data-lightbox /><figcaption>Reconstruction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-broadband-reconstructed.webp" alt="Butterfly reconstruction from the broadband metalens under fence obstruction" loading="lazy" data-lightbox /><figcaption>Reconstruction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/print-butterfly-ours-reconstructed.webp" alt="Butterfly reconstruction from the proposed metalens under fence obstruction" loading="lazy" data-lightbox /><figcaption>Reconstruction</figcaption></figure></div></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="supp-feature-card" data-source-figure="S33">
+              <header class="supp-feature-header">
+                <div><span>Dynamic obstruction &middot; three consecutive frames</span><h3>Dynamic single-shot capture</h3></div>
+              </header>
+              <div class="dynamic-supp-layout">
+                <figure class="dynamic-reference-card"><h4>Compound-lens GT</h4><img src="assets/derived/supp-dynamic-gt.webp" alt="Unobstructed compound-lens reference for the dynamic obstruction experiment" loading="lazy" data-lightbox /><figcaption>Unobstructed reference</figcaption></figure>
+                <div class="dynamic-method-grid">
+                  <section class="result-sequence-card"><h4>Hyperbolic</h4><div class="sequence-results labeled"><figure><img src="assets/derived/supp-dynamic-hyperbolic-1.webp" alt="Hyperbolic metalens dynamic reconstruction at frame one" loading="lazy" data-lightbox /><figcaption>Frame 1</figcaption></figure><figure><img src="assets/derived/supp-dynamic-hyperbolic-2.webp" alt="Hyperbolic metalens dynamic reconstruction at frame two" loading="lazy" data-lightbox /><figcaption>Frame 2</figcaption></figure><figure><img src="assets/derived/supp-dynamic-hyperbolic-3.webp" alt="Hyperbolic metalens dynamic reconstruction at frame three" loading="lazy" data-lightbox /><figcaption>Frame 3</figcaption></figure></div></section>
+                  <section class="result-sequence-card"><h4>Broadband</h4><div class="sequence-results labeled"><figure><img src="assets/derived/supp-dynamic-broadband-1.webp" alt="Broadband metalens dynamic reconstruction at frame one" loading="lazy" data-lightbox /><figcaption>Frame 1</figcaption></figure><figure><img src="assets/derived/supp-dynamic-broadband-2.webp" alt="Broadband metalens dynamic reconstruction at frame two" loading="lazy" data-lightbox /><figcaption>Frame 2</figcaption></figure><figure><img src="assets/derived/supp-dynamic-broadband-3.webp" alt="Broadband metalens dynamic reconstruction at frame three" loading="lazy" data-lightbox /><figcaption>Frame 3</figcaption></figure></div></section>
+                  <section class="result-sequence-card is-ours"><h4>Ours</h4><div class="sequence-results labeled"><figure><img src="assets/derived/supp-dynamic-ours-1.webp" alt="Proposed metalens dynamic reconstruction at frame one" loading="lazy" data-lightbox /><figcaption>Frame 1</figcaption></figure><figure><img src="assets/derived/supp-dynamic-ours-2.webp" alt="Proposed metalens dynamic reconstruction at frame two" loading="lazy" data-lightbox /><figcaption>Frame 2</figcaption></figure><figure><img src="assets/derived/supp-dynamic-ours-3.webp" alt="Proposed metalens dynamic reconstruction at frame three" loading="lazy" data-lightbox /><figcaption>Frame 3</figcaption></figure></div></section>
+                </div>
+              </div>
+            </article>
+
+            <div class="supp-vision-stack" aria-label="Supplementary controlled vision benchmarks">
+              <article class="supp-feature-card" data-source-figure="S18-S19" data-task="visdrone">
+                <header class="supp-feature-header"><div><span>Controlled vision benchmark &middot; object detection</span><h3>Additional VisDrone result</h3></div></header>
+                <section class="aggregate-performance" aria-labelledby="visdrone-aggregate-title">
+                  <div class="aggregate-performance-summary">
+                    <div>
+                      <span class="aggregate-source">Aggregate benchmark &middot; 10 sampled validation images &middot; Supplementary Table S8 &middot; mAP<sub>50</sub> &middot; Scale 0&ndash;25</span>
+                      <h4 class="condition-shift" id="visdrone-aggregate-title"><span>UNOBSTRUCTED</span><span aria-hidden="true">&rarr;</span><span class="sr-only">to</span><span>OBSTRUCTED</span></h4>
+                    </div>
+                  </div>
+                  <div class="aggregate-table-wrap" role="region" aria-label="Aggregate VisDrone mAP50 comparison" tabindex="0">
+                    <table class="aggregate-table">
+                      <caption class="sr-only">VisDrone aggregate mAP50 before and after adding the near-depth fence obstruction</caption>
+                      <thead><tr><th scope="col">Method</th><th scope="col">Unobstructed to obstructed</th><th scope="col">Change</th></tr></thead>
+                      <tbody>
+                        <tr class="aggregate-pair"><th scope="row">Hyperbolic</th><td><div class="aggregate-score-pair" style="--unobstructed:87%; --obstructed:14%"><span class="aggregate-score-values">21.75% &rarr; 3.50%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;18.25 pp</td></tr>
+                        <tr class="aggregate-pair"><th scope="row">Broadband</th><td><div class="aggregate-score-pair" style="--unobstructed:42.64%; --obstructed:11.68%"><span class="aggregate-score-values">10.66% &rarr; 2.92%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;7.74 pp</td></tr>
+                        <tr class="aggregate-pair is-ours"><th scope="row">Ours</th><td><div class="aggregate-score-pair" style="--unobstructed:97.08%; --obstructed:68.16%"><span class="aggregate-score-values">24.27% &rarr; 17.04%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;7.23 pp</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+                <div class="result-tabs" data-result-tabs data-default-tab="obstructed">
+                  <div class="result-tablist" role="tablist" aria-label="VisDrone obstruction condition"><button id="visdrone-tab-obstructed" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="visdrone-obstructed" data-result-tab="obstructed">Obstructed</button><button id="visdrone-tab-unobstructed" type="button" role="tab" aria-selected="false" aria-controls="visdrone-unobstructed" tabindex="-1" data-result-tab="unobstructed">Unobstructed</button></div>
+                  <div id="visdrone-obstructed" role="tabpanel" aria-labelledby="visdrone-tab-obstructed" data-result-panel="obstructed"><div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-obstructed-gt-input.webp" alt="Digital VisDrone reference image for the obstructed comparison" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-obstructed-gt-output.webp" alt="Dataset ground-truth object labels for the VisDrone comparison" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-obstructed-hyperbolic-input.webp" alt="Fence-obstructed VisDrone input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-obstructed-hyperbolic-output.webp" alt="VisDrone prediction from the obstructed hyperbolic capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-obstructed-broadband-input.webp" alt="Fence-obstructed VisDrone input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-obstructed-broadband-output.webp" alt="VisDrone prediction from the obstructed broadband capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-obstructed-ours-input.webp" alt="Fence-obstructed VisDrone input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-obstructed-ours-output.webp" alt="VisDrone prediction from the obstructed proposed-metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  </div></div>
+                  <div id="visdrone-unobstructed" role="tabpanel" aria-labelledby="visdrone-tab-unobstructed" data-result-panel="unobstructed" hidden><div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-unobstructed-gt-input.webp" alt="Digital VisDrone reference image for the unobstructed comparison" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-unobstructed-gt-output.webp" alt="Dataset ground-truth object labels for the unobstructed VisDrone comparison" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-unobstructed-hyperbolic-input.webp" alt="Unobstructed VisDrone input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-unobstructed-hyperbolic-output.webp" alt="VisDrone prediction from the unobstructed hyperbolic capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-unobstructed-broadband-input.webp" alt="Unobstructed VisDrone input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-unobstructed-broadband-output.webp" alt="VisDrone prediction from the unobstructed broadband capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-visdrone-unobstructed-ours-input.webp" alt="Unobstructed VisDrone input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-visdrone-unobstructed-ours-output.webp" alt="VisDrone prediction from the unobstructed proposed-metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  </div></div>
+                </div>
+              </article>
+
+              <article class="supp-feature-card" data-source-figure="S20-S23" data-task="kvasir">
+                <header class="supp-feature-header"><div><span>Controlled vision benchmark &middot; medical segmentation</span><h3>Additional Kvasir-SEG result</h3></div></header>
+                <section class="aggregate-performance" aria-labelledby="kvasir-aggregate-title">
+                  <div class="aggregate-performance-summary">
+                    <div>
+                      <span class="aggregate-source">Aggregate benchmark &middot; 14 sampled validation images &middot; Supplementary Table S9 &middot; IoU &middot; Scale 0&ndash;100</span>
+                      <h4 class="condition-shift" id="kvasir-aggregate-title"><span>UNOBSTRUCTED</span><span aria-hidden="true">&rarr;</span><span class="sr-only">to</span><span>OBSTRUCTED</span></h4>
+                    </div>
+                  </div>
+                  <div class="aggregate-table-wrap" role="region" aria-label="Aggregate Kvasir-SEG IoU comparison" tabindex="0">
+                    <table class="aggregate-table">
+                      <caption class="sr-only">Kvasir-SEG aggregate IoU before and after adding the near-depth blood-drop obstruction</caption>
+                      <thead><tr><th scope="col">Method</th><th scope="col">Unobstructed to obstructed</th><th scope="col">Change</th></tr></thead>
+                      <tbody>
+                        <tr class="aggregate-pair"><th scope="row">Hyperbolic</th><td><div class="aggregate-score-pair" style="--unobstructed:80.80%; --obstructed:34.72%"><span class="aggregate-score-values">80.80% &rarr; 34.72%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;46.08 pp</td></tr>
+                        <tr class="aggregate-pair"><th scope="row">Broadband</th><td><div class="aggregate-score-pair" style="--unobstructed:81.99%; --obstructed:59.50%"><span class="aggregate-score-values">81.99% &rarr; 59.50%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;22.49 pp</td></tr>
+                        <tr class="aggregate-pair is-ours"><th scope="row">Ours</th><td><div class="aggregate-score-pair" style="--unobstructed:83.56%; --obstructed:83.17%"><span class="aggregate-score-values">83.56% &rarr; 83.17%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;0.39 pp</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+                <div class="result-tabs" data-result-tabs data-default-tab="obstructed">
+                  <div class="result-tablist" role="tablist" aria-label="Kvasir-SEG obstruction condition"><button id="kvasir-tab-obstructed" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="kvasir-obstructed" data-result-tab="obstructed">Obstructed</button><button id="kvasir-tab-unobstructed" type="button" role="tab" aria-selected="false" aria-controls="kvasir-unobstructed" tabindex="-1" data-result-tab="unobstructed">Unobstructed</button></div>
+                  <div id="kvasir-obstructed" role="tabpanel" aria-labelledby="kvasir-tab-obstructed" data-result-panel="obstructed"><div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-obstructed-gt-input.webp" alt="Digital Kvasir-SEG reference image for the obstructed comparison" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-obstructed-gt-output.webp" alt="Dataset ground-truth mask for the Kvasir-SEG comparison" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-obstructed-hyperbolic-input.webp" alt="Blood-drop-obstructed Kvasir-SEG input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-obstructed-hyperbolic-output.webp" alt="Kvasir-SEG prediction from the obstructed hyperbolic capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-obstructed-broadband-input.webp" alt="Blood-drop-obstructed Kvasir-SEG input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-obstructed-broadband-output.webp" alt="Kvasir-SEG prediction from the obstructed broadband capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-obstructed-ours-input.webp" alt="Blood-drop-obstructed Kvasir-SEG input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-obstructed-ours-output.webp" alt="Kvasir-SEG prediction from the obstructed proposed-metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  </div></div>
+                  <div id="kvasir-unobstructed" role="tabpanel" aria-labelledby="kvasir-tab-unobstructed" data-result-panel="unobstructed" hidden><div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-unobstructed-gt-input.webp" alt="Digital Kvasir-SEG reference image for the unobstructed comparison" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-unobstructed-gt-output.webp" alt="Dataset ground-truth mask for the unobstructed Kvasir-SEG comparison" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-unobstructed-hyperbolic-input.webp" alt="Unobstructed Kvasir-SEG input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-unobstructed-hyperbolic-output.webp" alt="Kvasir-SEG prediction from the unobstructed hyperbolic capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-unobstructed-broadband-input.webp" alt="Unobstructed Kvasir-SEG input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-unobstructed-broadband-output.webp" alt="Kvasir-SEG prediction from the unobstructed broadband capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-kvasir-unobstructed-ours-input.webp" alt="Unobstructed Kvasir-SEG input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-kvasir-unobstructed-ours-output.webp" alt="Kvasir-SEG prediction from the unobstructed proposed-metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  </div></div>
+                </div>
+              </article>
+
+              <article class="supp-feature-card" data-source-figure="S24-S25" data-task="cityscapes">
+                <header class="supp-feature-header"><div><span>Controlled vision benchmark &middot; semantic segmentation</span><h3>Additional Cityscapes result</h3></div></header>
+                <section class="aggregate-performance" aria-labelledby="cityscapes-aggregate-title">
+                  <div class="aggregate-performance-summary">
+                    <div>
+                      <span class="aggregate-source">Aggregate benchmark &middot; 10 sampled validation images &middot; Supplementary Table S10 &middot; mIoU &middot; Scale 0&ndash;100</span>
+                      <h4 class="condition-shift" id="cityscapes-aggregate-title"><span>UNOBSTRUCTED</span><span aria-hidden="true">&rarr;</span><span class="sr-only">to</span><span>OBSTRUCTED</span></h4>
+                    </div>
+                  </div>
+                  <div class="aggregate-table-wrap" role="region" aria-label="Aggregate Cityscapes mIoU comparison" tabindex="0">
+                    <table class="aggregate-table">
+                      <caption class="sr-only">Cityscapes aggregate mIoU before and after adding the near-depth dirt obstruction</caption>
+                      <thead><tr><th scope="col">Method</th><th scope="col">Unobstructed to obstructed</th><th scope="col">Change</th></tr></thead>
+                      <tbody>
+                        <tr class="aggregate-pair"><th scope="row">Hyperbolic</th><td><div class="aggregate-score-pair" style="--unobstructed:60.01%; --obstructed:46.66%"><span class="aggregate-score-values">60.01% &rarr; 46.66%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;13.35 pp</td></tr>
+                        <tr class="aggregate-pair"><th scope="row">Broadband</th><td><div class="aggregate-score-pair" style="--unobstructed:59.42%; --obstructed:46.01%"><span class="aggregate-score-values">59.42% &rarr; 46.01%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;13.41 pp</td></tr>
+                        <tr class="aggregate-pair is-ours"><th scope="row">Ours</th><td><div class="aggregate-score-pair" style="--unobstructed:70.80%; --obstructed:67.01%"><span class="aggregate-score-values">70.80% &rarr; 67.01%</span><span class="aggregate-score-bars" aria-hidden="true"><i class="is-unobstructed"><b></b></i><i class="is-obstructed"><b></b></i></span></div></td><td>&minus;3.79 pp</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+                <div class="result-tabs" data-result-tabs data-default-tab="obstructed">
+                  <div class="result-tablist" role="tablist" aria-label="Cityscapes obstruction condition"><button id="cityscapes-tab-obstructed" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="cityscapes-obstructed" data-result-tab="obstructed">Obstructed</button><button id="cityscapes-tab-unobstructed" type="button" role="tab" aria-selected="false" aria-controls="cityscapes-unobstructed" tabindex="-1" data-result-tab="unobstructed">Unobstructed</button></div>
+                  <div id="cityscapes-obstructed" role="tabpanel" aria-labelledby="cityscapes-tab-obstructed" data-result-panel="obstructed"><div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-obstructed-gt-input.webp" alt="Digital Cityscapes reference image for the obstructed comparison" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-obstructed-gt-output.webp" alt="Dataset ground-truth semantic label for the Cityscapes comparison" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-obstructed-hyperbolic-input.webp" alt="Dirt-obstructed Cityscapes input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-obstructed-hyperbolic-output.webp" alt="Cityscapes prediction from the obstructed hyperbolic capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-obstructed-broadband-input.webp" alt="Dirt-obstructed Cityscapes input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-obstructed-broadband-output.webp" alt="Cityscapes prediction from the obstructed broadband capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-obstructed-ours-input.webp" alt="Dirt-obstructed Cityscapes input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-obstructed-ours-output.webp" alt="Cityscapes prediction from the obstructed proposed-metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  </div></div>
+                  <div id="cityscapes-unobstructed" role="tabpanel" aria-labelledby="cityscapes-tab-unobstructed" data-result-panel="unobstructed" hidden><div class="vision-method-grid supplementary-method-grid">
+                    <div class="vision-method is-reference"><h4>Digital GT</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-unobstructed-gt-input.webp" alt="Digital Cityscapes reference image for the unobstructed comparison" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-unobstructed-gt-output.webp" alt="Dataset ground-truth semantic label for the unobstructed Cityscapes comparison" loading="lazy" data-lightbox /><figcaption>Ground-truth label</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Hyperbolic</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-unobstructed-hyperbolic-input.webp" alt="Unobstructed Cityscapes input captured through the hyperbolic metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-unobstructed-hyperbolic-output.webp" alt="Cityscapes prediction from the unobstructed hyperbolic capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method"><h4>Broadband</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-unobstructed-broadband-input.webp" alt="Unobstructed Cityscapes input captured through the broadband metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-unobstructed-broadband-output.webp" alt="Cityscapes prediction from the unobstructed broadband capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                    <div class="vision-method is-ours"><h4>Ours</h4><div class="vision-method-media"><figure><img src="assets/derived/supp-cityscapes-unobstructed-ours-input.webp" alt="Unobstructed Cityscapes input captured through the proposed metalens" loading="lazy" data-lightbox /><figcaption>Input</figcaption></figure><figure><img src="assets/derived/supp-cityscapes-unobstructed-ours-output.webp" alt="Cityscapes prediction from the unobstructed proposed-metalens capture" loading="lazy" data-lightbox /><figcaption>Prediction</figcaption></figure></div></div>
+                  </div></div>
+                </div>
+                <div class="cityscapes-legend" aria-label="Cityscapes semantic class legend"><span><i style="--swatch:#804080"></i>Road</span><span><i style="--swatch:#f423e8"></i>Sidewalk</span><span><i style="--swatch:#464646"></i>Building</span><span><i style="--swatch:#66669c"></i>Wall</span><span><i style="--swatch:#999999"></i>Pole</span><span><i style="--swatch:#faaa1e"></i>Traffic light</span><span><i style="--swatch:#dcdc00"></i>Traffic sign</span><span><i style="--swatch:#6b8e23"></i>Vegetation</span><span><i style="--swatch:#98fb98"></i>Terrain</span><span><i style="--swatch:#4682b4"></i>Sky</span><span><i style="--swatch:#dc143c"></i>Person</span><span><i style="--swatch:#ff0000"></i>Rider</span><span><i style="--swatch:#00008e"></i>Car</span><span><i style="--swatch:#003c64"></i>Bus</span><span><i style="--swatch:#0000e6"></i>Motorcycle</span><span><i style="--swatch:#770b20"></i>Bicycle</span></div>
+              </article>
+            </div>
+
+            <article class="supp-feature-card" data-source-figure="S41-S42">
+              <header class="supp-feature-header"><div><span>Compact prototype &middot; outdoor semantic segmentation</span><h3>Outdoor compact-prototype vision</h3></div></header>
+              <div class="result-tabs" data-result-tabs data-default-tab="obstructed">
+                <div class="result-tablist" role="tablist" aria-label="Outdoor compact prototype obstruction condition"><button id="outdoor-tab-obstructed" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="outdoor-obstructed" data-result-tab="obstructed">With obstruction</button><button id="outdoor-tab-unobstructed" type="button" role="tab" aria-selected="false" aria-controls="outdoor-unobstructed" tabindex="-1" data-result-tab="unobstructed">Without obstruction</button></div>
+                <div id="outdoor-obstructed" role="tabpanel" aria-labelledby="outdoor-tab-obstructed" data-result-panel="obstructed"><div class="outdoor-frame-grid">
+                  <section class="outdoor-frame-card"><h4>Frame 1</h4><div class="paired-results"><figure><span>Input</span><img src="assets/derived/outdoor-compact-obstructed-1-input.webp" alt="Outdoor compact-camera input frame one with a near-depth obstruction" loading="lazy" data-lightbox /></figure><figure><span>Prediction</span><img src="assets/derived/outdoor-compact-obstructed-1-prediction.webp" alt="Semantic prediction for outdoor compact-camera frame one with obstruction" loading="lazy" data-lightbox /></figure></div></section>
+                  <section class="outdoor-frame-card"><h4>Frame 2</h4><div class="paired-results"><figure><span>Input</span><img src="assets/derived/outdoor-compact-obstructed-2-input.webp" alt="Outdoor compact-camera input frame two with a near-depth obstruction" loading="lazy" data-lightbox /></figure><figure><span>Prediction</span><img src="assets/derived/outdoor-compact-obstructed-2-prediction.webp" alt="Semantic prediction for outdoor compact-camera frame two with obstruction" loading="lazy" data-lightbox /></figure></div></section>
+                  <section class="outdoor-frame-card"><h4>Frame 3</h4><div class="paired-results"><figure><span>Input</span><img src="assets/derived/outdoor-compact-obstructed-3-input.webp" alt="Outdoor compact-camera input frame three with a near-depth obstruction" loading="lazy" data-lightbox /></figure><figure><span>Prediction</span><img src="assets/derived/outdoor-compact-obstructed-3-prediction.webp" alt="Semantic prediction for outdoor compact-camera frame three with obstruction" loading="lazy" data-lightbox /></figure></div></section>
+                </div></div>
+                <div id="outdoor-unobstructed" role="tabpanel" aria-labelledby="outdoor-tab-unobstructed" data-result-panel="unobstructed" hidden><div class="outdoor-frame-grid">
+                  <section class="outdoor-frame-card"><h4>Frame 1</h4><div class="paired-results"><figure><span>Input</span><img src="assets/derived/outdoor-compact-unobstructed-1-input.webp" alt="Outdoor compact-camera input frame one without obstruction" loading="lazy" data-lightbox /></figure><figure><span>Prediction</span><img src="assets/derived/outdoor-compact-unobstructed-1-prediction.webp" alt="Semantic prediction for outdoor compact-camera frame one without obstruction" loading="lazy" data-lightbox /></figure></div></section>
+                  <section class="outdoor-frame-card"><h4>Frame 2</h4><div class="paired-results"><figure><span>Input</span><img src="assets/derived/outdoor-compact-unobstructed-2-input.webp" alt="Outdoor compact-camera input frame two without obstruction" loading="lazy" data-lightbox /></figure><figure><span>Prediction</span><img src="assets/derived/outdoor-compact-unobstructed-2-prediction.webp" alt="Semantic prediction for outdoor compact-camera frame two without obstruction" loading="lazy" data-lightbox /></figure></div></section>
+                  <section class="outdoor-frame-card"><h4>Frame 3</h4><div class="paired-results"><figure><span>Input</span><img src="assets/derived/outdoor-compact-unobstructed-3-input.webp" alt="Outdoor compact-camera input frame three without obstruction" loading="lazy" data-lightbox /></figure><figure><span>Prediction</span><img src="assets/derived/outdoor-compact-unobstructed-3-prediction.webp" alt="Semantic prediction for outdoor compact-camera frame three without obstruction" loading="lazy" data-lightbox /></figure></div></section>
+                </div></div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section hero is-light" id="resources" aria-labelledby="resources-title">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered" id="resources-title">Resources</h2>
+          <div class="resource-list">
+            <a href="https://github.com/puostyoon/de-occluding-broadband-metalens-public" target="_blank" rel="noreferrer"><strong>Code repository</strong><span>Training, evaluation, and reconstruction code</span></a>
+            <a href="https://drive.google.com/drive/folders/1siNWBBHfKFFi4170p5rpSbTFk9WyrfSp?usp=sharing" target="_blank" rel="noreferrer"><strong>Dataset</strong><span>Captured measurements and evaluation data</span></a>
+            <a href="https://doi.org/10.5281/zenodo.20823451" target="_blank" rel="noreferrer"><strong>Zenodo archive</strong><span>Versioned code release v1.0.0</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section publication-body" id="bibtex" aria-labelledby="bibtex-title">
+        <div class="container is-max-desktop">
+          <div class="bibtex-header">
+            <h2 class="title is-3" id="bibtex-title">BibTeX</h2>
+            <button class="copy-bibtex-btn" type="button" data-copy-bibtex><i class="fas fa-copy" aria-hidden="true"></i><span>Copy</span></button>
+          </div>
+          <pre><code id="bibtex-code">@article{yoon2026deoccluding,
+  title   = {De-occluding broadband metalens},
+  author  = {Yoon, Seungwoo and Kang, Dohyun and Choi, Eunsue and Lee, Sohyun and Kim, Seoyeon and Choi, Minho and Heo, Hyeonsu and Shin, Dong-Ha and Kwak, Suha and Majumdar, Arka and Rho, Junsuk and Baek, Seung-Hwan},
+  journal = {Nature Communications},
+  year    = {2026},
+  doi     = {10.1038/s41467-026-76606-0},
+  url     = {https://doi.org/10.1038/s41467-026-76606-0}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container is-max-desktop">
+        <div class="content has-text-centered">
+          <p><strong>De-occluding broadband metalens</strong> · Nature Communications 2026</p>
+          <p>
+            Built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io/" target="_blank" rel="noreferrer">Nerfies project page</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="image-dialog" data-image-dialog>
+      <button type="button" data-dialog-close aria-label="Close expanded image"><i class="fas fa-times" aria-hidden="true"></i></button>
+      <img src="" alt="Expanded project figure" data-dialog-image />
+      <p data-dialog-caption></p>
+    </dialog>
+  </body>
+</html>
