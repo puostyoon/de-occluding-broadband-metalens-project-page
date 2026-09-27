@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f8fafc" />
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
       content="De-occluding broadband metalens: a depth–wavelength-symmetry-guided camera for obstruction-free broadband imaging. Nature Communications, 2026."
@@ -28,20 +28,20 @@
     <meta name="twitter:title" content="De-occluding broadband metalens" />
     <meta name="twitter:image" content="https://puostyoon.github.io/de-occluding-broadband-metalens-project-page/assets/derived/social-preview.png" />
     <meta name="citation_title" content="De-occluding broadband metalens" />
-    <meta name="citation_publication_date" content="2026" />
+    <meta name="citation_publication_date" content="2026/08/15" />
     <meta name="citation_journal_title" content="Nature Communications" />
+    <meta name="citation_volume" content="17" />
+    <meta name="citation_issue" content="1" />
+    <meta name="citation_firstpage" content="9808" />
+    <meta name="citation_pdf_url" content="https://www.nature.com/articles/s41467-026-76606-0.pdf" />
     <meta name="citation_doi" content="10.1038/s41467-026-76606-0" />
     <title>De-occluding broadband metalens</title>
     <link rel="canonical" href="https://puostyoon.github.io/de-occluding-broadband-metalens-project-page/" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/bulma.min.css" />
-    <link rel="stylesheet" href="assets/css/template-base.css" />
-    <link rel="stylesheet" href="assets/css/style.css?v=20260904a" />
+    <link rel="stylesheet" href="assets/css/style.css?v=20260927b" />
     <script defer src="assets/js/fontawesome.all.min.js"></script>
-    <script defer src="assets/js/main.js?v=20260904a"></script>
+    <script defer src="assets/js/main.js?v=20260927a"></script>
 
     <script type="application/ld+json">
       {
@@ -49,6 +49,9 @@
         "@type": "ScholarlyArticle",
         "headline": "De-occluding broadband metalens",
         "datePublished": "2026-08-15",
+        "dateModified": "2026-09-15",
+        "isPartOf": { "@type": "PublicationVolume", "volumeNumber": "17", "isPartOf": { "@type": "Periodical", "name": "Nature Communications" } },
+        "pagination": "9808",
         "publisher": { "@type": "Organization", "name": "Nature Communications" },
         "url": "https://www.nature.com/articles/s41467-026-76606-0",
         "identifier": "https://doi.org/10.1038/s41467-026-76606-0",
@@ -69,7 +72,8 @@
           <div class="container is-max-desktop">
             <div class="columns is-centered">
               <div class="column has-text-centered">
-                <h1 class="title is-1 publication-title">De-occluding broadband metalens</h1>
+                <div class="publication-venue">Nature Communications &middot; 2026</div>
+                <h1 class="title is-1 publication-title"><span class="publication-title-line">De-occluding</span> <span class="publication-title-line">broadband metalens</span></h1>
 
                 <div class="is-size-5 publication-authors" aria-label="Authors">
                   <span class="author-block"><a href="https://sites.google.com/view/seungwoo-yoon/" target="_blank" rel="noreferrer">Seungwoo Yoon</a><sup>1*</sup>,</span>
@@ -93,7 +97,6 @@
                   <span><sup>9</sup> POSCO-POSTECH-RIST Convergence Research Center</span>
                   <span><sup>10</sup> National Institute of Nanomaterials Technology</span>
                 </div>
-                <div class="publication-venue">Nature Communications · 2026</div>
                 <p class="eql-cntrb"><sup>*</sup> Equal contribution · <sup>&dagger;</sup> Corresponding authors</p>
 
                 <details class="affiliation-details">
@@ -119,7 +122,7 @@
                     </a>
                   </span>
                   <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark" href="https://www.nature.com/articles/s41467-026-76606-0#Sec18" target="_blank" rel="noreferrer">
+                    <a class="external-link button is-normal is-rounded is-dark" href="https://www.nature.com/articles/s41467-026-76606-0#Sec14" target="_blank" rel="noreferrer">
                       <span class="icon"><i class="fas fa-paperclip" aria-hidden="true"></i></span><span>Supplementary</span>
                     </a>
                   </span>
@@ -148,11 +151,20 @@
       <section class="hero teaser" aria-labelledby="teaser-caption">
         <div class="container is-widescreen">
           <div class="hero-body">
-            <figure class="publication-banner teaser-banner">
-              <img src="assets/derived/teaser.png?v=20260903d" alt="Website teaser showing an obstructed capture, the split-spectrum metalens, the compact prototype, and the recovered scene" width="1600" height="900" fetchpriority="high" data-lightbox />
-            </figure>
+            <div class="teaser-plate">
+              <div class="teaser-optics-strip">
+                <figure class="teaser-component is-obstruction"><img src="assets/derived/dirt-obstruction.webp" width="640" height="640" alt="Near-depth dirt obstruction used in the experiment" /><figcaption>Near-depth obstruction</figcaption></figure>
+                <figure class="teaser-component is-optics"><img src="assets/derived/teaser-optics.png?v=20260927a" width="1000" height="280" alt="The multi-band spectral filter and learned metalens, using the original Figure 1 optical components" /><figcaption>Multi-band spectral filter + learned metalens</figcaption></figure>
+                <figure class="teaser-component is-prototype"><img src="assets/derived/teaser-prototype.png?v=20260927a" width="800" height="503" alt="The fabricated compact camera, including the camera body and rear module" data-lightbox /><figcaption>28 &times; 28 &times; 30 mm<sup>3</sup> prototype</figcaption></figure>
+              </div>
+              <div class="teaser-result-grid">
+                <figure><img src="assets/derived/dirt-broadband.webp" width="640" height="640" alt="Broadband baseline reconstruction with visible dirt obstruction" fetchpriority="high" data-lightbox /><figcaption>Broadband baseline</figcaption></figure>
+                <figure class="is-ours"><img src="assets/derived/dirt-ours.webp" width="640" height="640" alt="Reconstruction with the de-occluding broadband metalens" fetchpriority="high" data-lightbox /><figcaption>De-occluding broadband metalens (Ours)</figcaption></figure>
+                <figure><img src="assets/derived/dirt-ground-truth.webp" width="640" height="640" alt="Unobstructed compound-lens reference of the same scene" fetchpriority="high" data-lightbox /><figcaption>Unobstructed reference</figcaption></figure>
+              </div>
+            </div>
             <h2 class="subtitle has-text-centered" id="teaser-caption">
-              The learned metalens keeps far-scene light in the filter pass bands while shifting near-depth obstruction light into stop bands, preserving real scene evidence in a compact camera.
+              A compact metalens camera that suppresses nearby obstructions while preserving broadband images of distant scenes.
             </h2>
           </div>
         </div>
@@ -180,22 +192,21 @@
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered" id="publication-title">Publication</h2>
           <div class="publication-layout">
-            <a class="publication-cover" href="https://www.nature.com/articles/s41467-026-76606-0" target="_blank" rel="noreferrer" aria-label="Open the peer-reviewed Nature Communications article">
-              <span class="publication-cover-journal">Nature Communications</span>
-              <span class="publication-cover-placeholder" role="img" aria-label="Journal cover image placeholder">
-                <span>Journal cover</span>
-                <strong>Image forthcoming</strong>
-                <small>Placeholder</small>
-              </span>
-              <span class="publication-cover-action">View article <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <a class="publication-cover" href="https://www.nature.com/articles/s41467-026-76606-0" target="_blank" rel="noreferrer" aria-label="Read De-occluding broadband metalens in Nature Communications">
+              <img class="paper-first-page" src="assets/derived/paper-first-page.png?v=20260927a" width="1654" height="2197" alt="First page of the final published article, De-occluding broadband metalens, Nature Communications 17, 9808 (2026)" loading="lazy" />
+              <span class="publication-cover-action">Read the paper &nearr;</span>
             </a>
-            <div class="publication-cards">
-              <a href="https://www.nature.com/articles/s41467-026-76606-0" target="_blank" rel="noreferrer">
-                <span>Peer-reviewed article</span><strong>Nature Communications</strong><small>Published 15 August 2026</small>
-              </a>
-              <a href="https://doi.org/10.1038/s41467-026-76606-0" target="_blank" rel="noreferrer">
-                <span>Permanent record</span><strong>10.1038/s41467-026-76606-0</strong><small>Open-access DOI</small>
-              </a>
+            <div class="publication-record">
+              <p class="publication-record-venue">Nature Communications</p>
+              <h3 class="publication-record-title">De-occluding broadband metalens</h3>
+              <p class="publication-record-authors">Seungwoo Yoon, Dohyun Kang, Eunsue Choi, Sohyun Lee, Seoyeon Kim, Minho Choi, Hyeonsu Heo, Dong-Ha Shin, Suha Kwak, Arka Majumdar, Junsuk Rho &amp; Seung-Hwan Baek</p>
+              <p class="publication-record-citation">Volume 17, Article 9808 (2026) &middot; Open access</p>
+              <p class="publication-record-doi"><a href="https://doi.org/10.1038/s41467-026-76606-0" target="_blank" rel="noreferrer">doi:10.1038/s41467-026-76606-0</a></p>
+              <div class="paper-actions">
+                <a href="https://www.nature.com/articles/s41467-026-76606-0.pdf" target="_blank" rel="noreferrer">Paper PDF &nearr;</a>
+                <a href="https://www.nature.com/articles/s41467-026-76606-0#Sec14" target="_blank" rel="noreferrer">Supplementary &nearr;</a>
+                <a href="#bibtex">BibTeX &darr;</a>
+              </div>
             </div>
           </div>
         </div>
@@ -204,15 +215,12 @@
       <section class="section hero is-light" id="results" aria-labelledby="results-title">
         <div class="container is-widescreen">
           <h2 class="title is-3 has-text-centered" id="results-title">Key Results</h2>
-          <p class="section-lead has-text-centered">
-            Source-verified optical captures show how the proposed system suppresses nearby obstructions and preserves evidence for downstream vision.
-          </p>
 
           <div class="key-visual-stack">
             <article class="key-visual-card" data-scene="dirt">
               <header>
-                <div><span>Real experiment &middot; dirt obstruction</span><h3>Recover the scene without hallucinating missing content</h3></div>
-                <p>The obstruction itself is shown first. The hyperbolic lens is designed at 532 nm, while the broadband baseline retains near-depth dirt. Our result approaches the unobstructed reference.</p>
+                <div><span>Real experiment</span><h3>Broadband imaging through dirt obstruction</h3></div>
+                <p>Reconstructions from the three fabricated metalenses, with an unobstructed compound-lens reference. The hyperbolic lens is designed at 532 nm.</p>
               </header>
               <div class="key-visual-grid is-five">
                 <figure>
@@ -279,7 +287,6 @@
               </article>
             </div>
           </div>
-          <p class="figure-note has-text-centered">All panels are source-verified crops from Figures 5 and 6; no generated or inpainted content is used.</p>
         </div>
       </section>
 
@@ -688,6 +695,9 @@
   title   = {De-occluding broadband metalens},
   author  = {Yoon, Seungwoo and Kang, Dohyun and Choi, Eunsue and Lee, Sohyun and Kim, Seoyeon and Choi, Minho and Heo, Hyeonsu and Shin, Dong-Ha and Kwak, Suha and Majumdar, Arka and Rho, Junsuk and Baek, Seung-Hwan},
   journal = {Nature Communications},
+  volume  = {17},
+  number  = {1},
+  pages   = {9808},
   year    = {2026},
   doi     = {10.1038/s41467-026-76606-0},
   url     = {https://doi.org/10.1038/s41467-026-76606-0}
