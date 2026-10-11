@@ -20,8 +20,8 @@
       description: "A far-depth PSF at wavelength lambda reappears as a similar near-depth PSF at the shifted wavelength lambda plus delta lambda."
     },
     {
-      image: "assets/derived/multiband-rejection.png?v=20260903d",
-      alt: "Step 3: pass bands transmit focused far-depth light while stop bands reject the shifted near-depth focus",
+      image: "assets/derived/multiband-rejection.png?v=20261011a",
+      alt: "Step 3: Conventional imaging retains the near-depth obstruction; Ours shows the clean far scene using split-spectrum filtering",
       title: "Reject the shifted near-depth focus",
       description: "Pass bands transmit focused far-depth light; the corresponding focused near-depth light shifts into stop bands and is rejected."
     },
@@ -149,6 +149,8 @@
       const step = resolvedSteps[active];
       frame.src = step.image;
       frame.alt = step.alt;
+      if (frame.hasAttribute("data-lightbox")) frame.setAttribute("aria-label", `${step.alt}. Open full-size image.`);
+      if (visual) visual.scrollLeft = 0;
       if (count) count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(resolvedSteps.length).padStart(2, "0")}`;
       if (title) title.textContent = step.title;
       if (description) description.textContent = step.description;
@@ -274,7 +276,7 @@
     const frame = root.querySelector("#method-frame, [data-method-frame]");
     const count = root.querySelector("#method-count, [data-method-count]");
     const title = root.querySelector("#method-step-title, [data-method-title]");
-    const description = root.querySelector("#method-step-description, [data-method-description]");
+    const description = root.querySelector(".method-copy #method-step-description, .method-copy [data-method-description]");
     const tabs = Array.from(root.querySelectorAll("[data-method-step]"));
     const visual = frame?.closest(".method-visual, [data-player-visual]") || frame?.parentElement;
     if (!frame || !tabs.length || tabs.length !== methodSteps.length) return null;
@@ -304,6 +306,7 @@
     const writeFrame = (source, alt) => {
       if (frame.getAttribute("src") !== source) frame.src = source;
       frame.alt = alt;
+      if (frame.hasAttribute("data-lightbox")) frame.setAttribute("aria-label", `${alt}. Open full-size image.`);
     };
 
     const sourceForStep = (step) => (
@@ -316,6 +319,7 @@
       active = (index + steps.length) % steps.length;
       const step = steps[active];
       writeFrame(sourceForStep(step), step.alt);
+      if (visual) visual.scrollLeft = 0;
       if (count) count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(steps.length).padStart(2, "0")}`;
       if (title) title.textContent = step.title;
       if (description) description.textContent = step.description;
@@ -594,7 +598,44 @@
 
   const videos = Array.from(document.querySelectorAll("video"));
   videos.forEach((video) => {
-    const fallback = video.closest(".video-frame")?.querySelector("[data-video-error]");
+    const wrapper = video.closest(".video-frame");
+    const fallback = wrapper?.querySelector("[data-video-error]");
+    const playButton = document.createElement("button");
+    playButton.type = "button";
+    playButton.className = "video-play";
+    playButton.dataset.videoPlay = "";
+    const videoLabel = video.getAttribute("aria-label") || "Video";
+    playButton.setAttribute("aria-label", `Play ${videoLabel}`);
+    playButton.title = "Play video";
+    wrapper?.appendChild(playButton);
+
+    const showPlayButton = () => {
+      playButton.disabled = false;
+      playButton.hidden = false;
+      playButton.setAttribute("aria-label", `${video.ended ? "Replay" : "Play"} ${videoLabel}`);
+    };
+
+    const showVideoError = () => {
+      playButton.hidden = true;
+      playButton.disabled = false;
+      video.classList.add("has-error");
+      if (fallback) fallback.hidden = false;
+    };
+
+    // A large, explicit control works on the poster as well as after pausing.
+    // Native video controls stay available for seeking, sound and fullscreen.
+    playButton.addEventListener("click", async () => {
+      playButton.disabled = true;
+      if (fallback) fallback.hidden = true;
+      video.classList.remove("has-error");
+      try {
+        if (video.error) video.load();
+        await video.play();
+      } catch (error) {
+        if (error.name === "AbortError") showPlayButton();
+        else showVideoError();
+      }
+    });
 
     video.addEventListener("play", () => {
       videos.forEach((other) => {
@@ -602,15 +643,22 @@
       });
     });
 
-    video.addEventListener("loadedmetadata", () => {
+    video.addEventListener("playing", () => {
+      playButton.hidden = true;
+      playButton.disabled = false;
       video.classList.remove("has-error");
       if (fallback) fallback.hidden = true;
     });
+    video.addEventListener("pause", showPlayButton);
+    video.addEventListener("ended", showPlayButton);
 
-    video.addEventListener("error", () => {
-      video.classList.add("has-error");
-      if (fallback) fallback.hidden = false;
+    video.addEventListener("loadedmetadata", () => {
+      video.classList.remove("has-error");
+      if (fallback) fallback.hidden = true;
+      if (video.paused) showPlayButton();
     });
+
+    video.addEventListener("error", showVideoError);
   });
 
   const dialog = document.querySelector("[data-image-dialog]");

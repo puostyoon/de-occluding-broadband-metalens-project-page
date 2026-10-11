@@ -39,9 +39,9 @@
     <link rel="canonical" href="https://puostyoon.github.io/de-occluding-broadband-metalens-project-page/" />
 
     <link rel="stylesheet" href="assets/css/bulma.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css?v=20260927b" />
+    <link rel="stylesheet" href="assets/css/style.css?v=20261011b" />
     <script defer src="assets/js/fontawesome.all.min.js"></script>
-    <script defer src="assets/js/main.js?v=20260927a"></script>
+    <script defer src="assets/js/main.js?v=20261011b"></script>
 
     <script type="application/ld+json">
       {
@@ -170,6 +170,18 @@
         </div>
       </section>
 
+
+      <section class="featured-video-section" id="featured-video" aria-label="Featured video">
+        <div class="container is-widescreen">
+          <figure class="featured-video">
+            <div class="video-frame">
+              <video controls muted playsinline preload="metadata" poster="assets/posters/dynamic-obstruction.png" aria-label="Lion scene: single-shot de-occlusion under a moving obstruction"><source src="assets/video/dynamic-obstruction.mp4" type="video/mp4" /></video>
+              <div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/dynamic-obstruction.mp4" download>Download MP4</a></div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
       <section class="section hero is-light" id="overview" aria-labelledby="abstract-title">
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
@@ -295,7 +307,7 @@
           <h2 class="title is-3 has-text-centered" id="videos-title">Videos</h2>
           <p class="section-lead has-text-centered">Because our method operates in a single shot, it naturally extends to video imaging.</p>
           <div class="video-strip" aria-label="Supplementary videos">
-            <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/dynamic-obstruction.png" aria-label="Dynamic obstruction supplementary video"><source src="assets/video/dynamic-obstruction.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/dynamic-obstruction.mp4" download>Download MP4</a></div></div><figcaption><strong>Dynamic obstruction</strong></figcaption></figure>
+            <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/dynamic-obstruction.png" aria-label="Lion scene supplementary video"><source src="assets/video/dynamic-obstruction.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/dynamic-obstruction.mp4" download>Download MP4</a></div></div><figcaption><strong>Lion scene</strong></figcaption></figure>
             <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/cube.png" aria-label="Cube scene supplementary video"><source src="assets/video/cube.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/cube.mp4" download>Download MP4</a></div></div><figcaption><strong>Cube scene</strong></figcaption></figure>
             <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/flower.png" aria-label="Flower scene supplementary video"><source src="assets/video/flower.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/flower.mp4" download>Download MP4</a></div></div><figcaption><strong>Flower scene</strong></figcaption></figure>
             <figure><div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/posters/frog.png" aria-label="Frog scene supplementary video"><source src="assets/video/frog.mp4" type="video/mp4" /></video><div class="video-error" data-video-error hidden>Video could not be loaded. <a href="assets/video/frog.mp4" download>Download MP4</a></div></div><figcaption><strong>Frog scene</strong></figcaption></figure>
@@ -305,26 +317,28 @@
       </section>
 
       <section class="section publication-body" id="method" aria-labelledby="method-title">
-        <div class="container is-max-desktop">
+        <div class="container is-widescreen">
           <h2 class="title is-3 has-text-centered" id="method-title">Depth&ndash;Wavelength Symmetry</h2>
           <p class="section-lead has-text-centered">
             For a diffractive lens, a coupled change in source wavelength and depth can produce nearly invariant PSFs.
           </p>
 
           <div class="symmetry-intuition-player" data-symmetry-intuition>
+            <p class="player-instruction">Select a step to explore depth–wavelength symmetry.</p>
+            <div class="intuition-tabs" role="tablist" aria-label="Depth–wavelength intuition steps">
+              <button id="symmetry-intuition-tab-0" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="symmetry-intuition-panel" data-intuition-step="0" data-intuition-image="assets/derived/symmetry-intuition-wavelength.png?v=20260904a" data-intuition-alt="A wavelength longer than the design wavelength causes a focal-front shift in a diffractive lens" data-intuition-heading="A longer wavelength shifts the focus forward" data-intuition-description="For &lambda; &gt; &lambda;d, chromatic phase mismatch produces a focal-front shift relative to the design wavelength."><span>01</span>Wavelength shift</button>
+              <button id="symmetry-intuition-tab-1" type="button" role="tab" aria-selected="false" aria-controls="symmetry-intuition-panel" tabindex="-1" data-intuition-step="1" data-intuition-image="assets/derived/symmetry-intuition-depth.png?v=20260904a" data-intuition-alt="The spherical wave from a near-depth point source compensates chromatic phase mismatch and produces an opposing focal-back shift" data-intuition-heading="A near-depth wave shifts the focus back" data-intuition-description="The spherical phase of a near-depth point source counterbalances that mismatch, producing the opposing focal-back shift and a similar PSF."><span>02</span>Near-depth compensation</button>
+              <button id="symmetry-intuition-tab-2" type="button" role="tab" aria-selected="false" aria-controls="symmetry-intuition-panel" tabindex="-1" data-intuition-step="2" data-intuition-image="assets/derived/symmetry-intuition-validation.png?v=20260904a" data-intuition-alt="Focal point intensity versus source wavelength and depth for a hyperbolic metalens designed at 450 nm, with the depth–wavelength symmetry model overlaid as a red dotted curve and a magnified inset." data-intuition-heading="The model predicts the focal-intensity map" data-intuition-description="For a hyperbolic metalens designed at λd = 450 nm, the predicted depth–wavelength correspondence agrees with the focal-intensity distribution computed using the Rayleigh–Sommerfeld diffraction integral."><span>03</span>Model validation</button>
+            </div>
+            <p class="player-pan-hint">Scroll the figure sideways, or select it to enlarge.</p>
             <div class="intuition-visual" id="symmetry-intuition-panel" role="tabpanel" tabindex="0" aria-labelledby="symmetry-intuition-tab-0" aria-describedby="symmetry-intuition-title symmetry-intuition-description">
-              <img id="symmetry-intuition-frame" data-intuition-frame src="assets/derived/symmetry-intuition-wavelength.png?v=20260904a" alt="A wavelength longer than the design wavelength causes a focal-front shift in a diffractive lens" />
-              <span class="sr-only" id="symmetry-intuition-scroll-hint" data-intuition-scroll-hint>On small screens, scroll horizontally to inspect the complete focal-intensity map.</span>
+              <img id="symmetry-intuition-frame" data-lightbox data-intuition-frame src="assets/derived/symmetry-intuition-wavelength.png?v=20260904a" alt="A wavelength longer than the design wavelength causes a focal-front shift in a diffractive lens" />
+              <span class="sr-only" id="symmetry-intuition-scroll-hint" data-intuition-scroll-hint>On small screens, scroll horizontally to inspect the complete figure.</span>
             </div>
             <div class="intuition-copy-panel" aria-live="polite">
               <div class="method-count" data-intuition-count>01 / 03</div>
               <h3 id="symmetry-intuition-title" data-intuition-title>A longer wavelength shifts the focus forward</h3>
               <p id="symmetry-intuition-description" data-intuition-copy>For &lambda; &gt; &lambda;<sub>d</sub>, chromatic phase mismatch produces a focal-front shift relative to the design wavelength.</p>
-            </div>
-            <div class="intuition-tabs" role="tablist" aria-label="Depth–wavelength intuition steps">
-              <button id="symmetry-intuition-tab-0" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="symmetry-intuition-panel" data-intuition-step="0" data-intuition-image="assets/derived/symmetry-intuition-wavelength.png?v=20260904a" data-intuition-alt="A wavelength longer than the design wavelength causes a focal-front shift in a diffractive lens" data-intuition-heading="A longer wavelength shifts the focus forward" data-intuition-description="For &lambda; &gt; &lambda;d, chromatic phase mismatch produces a focal-front shift relative to the design wavelength."><span>01</span>Wavelength shift</button>
-              <button id="symmetry-intuition-tab-1" type="button" role="tab" aria-selected="false" aria-controls="symmetry-intuition-panel" tabindex="-1" data-intuition-step="1" data-intuition-image="assets/derived/symmetry-intuition-depth.png?v=20260904a" data-intuition-alt="The spherical wave from a near-depth point source compensates chromatic phase mismatch and produces an opposing focal-back shift" data-intuition-heading="A near-depth wave shifts the focus back" data-intuition-description="The spherical phase of a near-depth point source counterbalances that mismatch, producing the opposing focal-back shift and a similar PSF."><span>02</span>Near-depth compensation</button>
-              <button id="symmetry-intuition-tab-2" type="button" role="tab" aria-selected="false" aria-controls="symmetry-intuition-panel" tabindex="-1" data-intuition-step="2" data-intuition-image="assets/derived/symmetry-intuition-validation.png?v=20260904a" data-intuition-alt="Focal point intensity versus source wavelength and depth for a hyperbolic metalens designed at 450 nm, with the depth–wavelength symmetry model overlaid as a red dotted curve and a magnified inset." data-intuition-heading="The model predicts the focal-intensity map" data-intuition-description="For a hyperbolic metalens designed at λd = 450 nm, the predicted depth–wavelength correspondence agrees with the focal-intensity distribution computed using the Rayleigh–Sommerfeld diffraction integral."><span>03</span>Model validation</button>
             </div>
           </div>
 
@@ -337,12 +351,12 @@
             <div class="equation" aria-label="Depth–wavelength symmetry model">
               <math display="block" aria-label="Delta lambda equals lambda sub d times f, multiplied by one over z minus one over z minus delta z">
                 <mrow>
-                  <mi>&#x0394;</mi><mi>&#x03BB;</mi><mo>=</mo>
-                  <msub><mi>&#x03BB;</mi><mi>d</mi></msub><mi>f</mi>
+                  <mi mathvariant="normal">&#x0394;</mi><mi mathvariant="normal">&#x03BB;</mi><mo>=</mo>
+                  <msub><mi mathvariant="normal">&#x03BB;</mi><mi mathvariant="normal">d</mi></msub><mi mathvariant="normal">f</mi>
                   <mo>(</mo>
-                  <mfrac><mn>1</mn><mi>z</mi></mfrac>
+                  <mfrac><mn>1</mn><mi mathvariant="normal">z</mi></mfrac>
                   <mo>&minus;</mo>
-                  <mfrac><mn>1</mn><mrow><mi>z</mi><mo>&minus;</mo><mi>&#x0394;</mi><mi>z</mi></mrow></mfrac>
+                  <mfrac><mn>1</mn><mrow><mi mathvariant="normal">z</mi><mo>&minus;</mo><mi mathvariant="normal">&#x0394;</mi><mi mathvariant="normal">z</mi></mrow></mfrac>
                   <mo>)</mo>
                 </mrow>
               </math>
@@ -351,20 +365,22 @@
 
           <h3 class="subsection-title">From depth&ndash;wavelength symmetry to split-spectrum filtering</h3>
           <div class="method-player" data-method-player>
+            <p class="player-instruction">Select a step to explore split-spectrum filtering.</p>
+            <div class="method-tabs" role="tablist" aria-label="Split-spectrum method steps">
+              <button id="method-tab-0" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="method-visual-panel" data-method-step="0" data-method-image="assets/derived/psf-scan-construction.png?v=20260903d" data-method-motion-image="assets/derived/psf-scan-build.webp?v=20260904a" data-method-alt="Step 1: monochromatic far-depth PSFs accumulate from lambda 1 through lambda 9, then combine into an x-lambda PSF scan" data-method-heading="Construct the far-depth PSF wavelength scan" data-method-description="Stack the monochromatic far-depth PSFs across wavelength to form the x-lambda scan."><span>01</span>Build the x&ndash;&lambda; scan</button>
+              <button id="method-tab-1" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="1" data-method-image="assets/derived/psf-scan-shift.png?v=20260903d" data-method-alt="Step 2: a far-depth PSF at one wavelength reappears as a similar near-depth PSF at a shifted wavelength" data-method-heading="Relate the near- and far-depth scans" data-method-description="A far-depth PSF at wavelength lambda reappears as a similar near-depth PSF at the shifted wavelength lambda plus delta lambda."><span>02</span>Relate near and far</button>
+              <button id="method-tab-2" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="2" data-method-image="assets/derived/multiband-rejection.png?v=20261011a" data-method-alt="Step 3: Conventional imaging retains the near-depth obstruction; Ours shows the clean far scene using split-spectrum filtering" data-method-heading="Reject the shifted near-depth focus" data-method-description="Pass bands transmit focused far-depth light; the corresponding focused near-depth light shifts into stop bands and is rejected."><span>03</span>Filter shifted focus</button>
+              <button id="method-tab-3" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="3" data-method-image="assets/derived/depth-wavelength-recap.png?v=20260903m" data-method-alt="Step 4: cropped PowerPoint recap showing the complete depth-wavelength symmetry relationship and split-spectrum optical design" data-method-heading="Depth&ndash;wavelength symmetry" data-method-description="Spectrum splitting prevents sharp far-depth focusing behavior from transferring to near depth, enabling sharp far-depth PSFs and defocused near-depth PSFs across the visible spectrum."><span>04</span>Recap</button>
+            </div>
+            <p class="player-pan-hint">Scroll the figure sideways, or select it to enlarge.</p>
             <div class="method-visual" id="method-visual-panel" role="tabpanel" tabindex="0" aria-labelledby="method-tab-0" aria-describedby="method-step-title method-step-description">
-              <img id="method-frame" src="assets/derived/psf-scan-construction.png?v=20260903d" alt="Step 1: monochromatic far-depth PSFs accumulate from lambda 1 through lambda 9, then combine into an x-lambda PSF scan" />
-              <span class="sr-only" id="method-scroll-hint">On small screens, scroll horizontally to inspect the complete recap figure.</span>
+              <img id="method-frame" data-lightbox src="assets/derived/psf-scan-construction.png?v=20260903d" alt="Step 1: monochromatic far-depth PSFs accumulate from lambda 1 through lambda 9, then combine into an x-lambda PSF scan" />
+              <span class="sr-only" id="method-scroll-hint">On small screens, scroll horizontally to inspect the complete figure.</span>
             </div>
             <div class="method-copy" aria-live="polite">
               <div class="method-count" id="method-count">01 / 04</div>
               <h3 id="method-step-title">Construct the far-depth PSF wavelength scan</h3>
               <p id="method-step-description">Stack the monochromatic far-depth PSFs across wavelength to form the x&ndash;&lambda; scan.</p>
-            </div>
-            <div class="method-tabs" role="tablist" aria-label="Split-spectrum method steps">
-              <button id="method-tab-0" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="method-visual-panel" data-method-step="0" data-method-image="assets/derived/psf-scan-construction.png?v=20260903d" data-method-motion-image="assets/derived/psf-scan-build.webp?v=20260904a" data-method-alt="Step 1: monochromatic far-depth PSFs accumulate from lambda 1 through lambda 9, then combine into an x-lambda PSF scan" data-method-heading="Construct the far-depth PSF wavelength scan" data-method-description="Stack the monochromatic far-depth PSFs across wavelength to form the x-lambda scan."><span>01</span>Build the x&ndash;&lambda; scan</button>
-              <button id="method-tab-1" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="1" data-method-image="assets/derived/psf-scan-shift.png?v=20260903d" data-method-alt="Step 2: a far-depth PSF at one wavelength reappears as a similar near-depth PSF at a shifted wavelength" data-method-heading="Relate the near- and far-depth scans" data-method-description="A far-depth PSF at wavelength lambda reappears as a similar near-depth PSF at the shifted wavelength lambda plus delta lambda."><span>02</span>Relate near and far</button>
-              <button id="method-tab-2" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="2" data-method-image="assets/derived/multiband-rejection.png?v=20260903d" data-method-alt="Step 3: pass bands transmit focused far-depth light while stop bands reject the shifted near-depth focus" data-method-heading="Reject the shifted near-depth focus" data-method-description="Pass bands transmit focused far-depth light; the corresponding focused near-depth light shifts into stop bands and is rejected."><span>03</span>Filter shifted focus</button>
-              <button id="method-tab-3" type="button" role="tab" aria-selected="false" aria-controls="method-visual-panel" tabindex="-1" data-method-step="3" data-method-image="assets/derived/depth-wavelength-recap.png?v=20260903m" data-method-alt="Step 4: cropped PowerPoint recap showing the complete depth-wavelength symmetry relationship and split-spectrum optical design" data-method-heading="Depth&ndash;wavelength symmetry" data-method-description="Spectrum splitting prevents sharp far-depth focusing behavior from transferring to near depth, enabling sharp far-depth PSFs and defocused near-depth PSFs across the visible spectrum."><span>04</span>Recap</button>
             </div>
           </div>
 
@@ -385,8 +401,8 @@
             <figure class="figure-panel characterization-panel characterization-overview">
               <div class="characterization-scroll" tabindex="0" role="region" aria-label="Fabrication overview and three fabricated metalenses; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/fabrication-overview.png?v=20260903e" alt="Top-down and tilted scanning electron micrographs followed by photographs of the de-occluding broadband, broadband baseline, and hyperbolic-phase metalenses" loading="lazy" data-lightbox /></div>
             </figure>
-            <figure class="figure-panel characterization-panel is-spectral"><div class="characterization-scroll" tabindex="0" role="region" aria-label="Measured far- and near-depth spectral PSF scans; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/psf-spectral-scan.png?v=20260903d" alt="Measured normalized x-lambda PSF scans at far and near depths for the three fabricated metalenses" loading="lazy" data-lightbox /></div><figcaption><strong>Measured PSF x&ndash;&lambda; scans, normalized to total intensity.</strong> Pass bands are highlighted; focused far-depth light is transmitted, while focused near-depth light is filtered out.</figcaption></figure>
-            <figure class="figure-panel characterization-panel is-detail"><div class="characterization-scroll" tabindex="0" role="region" aria-label="Measured two-dimensional PSFs; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/psf-wavelength-detail.png?v=20260903d" alt="Measured two-dimensional PSFs from 445 to 640 nanometers for the three metalenses at far and near depths" loading="lazy" data-lightbox /></div><figcaption><strong>Measured 2D PSFs across wavelength and depth, normalized to peak intensity.</strong> The stop-band PSFs of Ours are marked with black boxes.</figcaption></figure>
+            <figure class="figure-panel characterization-panel is-spectral"><div class="characterization-scroll" tabindex="0" role="region" aria-label="Measured far- and near-depth spectral PSF scans; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/psf-spectral-scan.png?v=20261011a" alt="Measured normalized x-lambda PSF scans at far and near depths for the three fabricated metalenses" loading="lazy" data-lightbox /></div><figcaption><strong>Measured PSF x&ndash;&lambda; scans, normalized to total intensity.</strong> Pass bands are highlighted; focused far-depth light is transmitted, while focused near-depth light is filtered out.</figcaption></figure>
+            <figure class="figure-panel characterization-panel is-detail"><div class="characterization-scroll" tabindex="0" role="region" aria-label="Measured two-dimensional PSFs; scroll horizontally to inspect the full-resolution figure"><img src="assets/derived/psf-wavelength-detail.png?v=20261011a" alt="Measured two-dimensional PSFs from 445 to 640 nanometers for the three metalenses at far and near depths" loading="lazy" data-lightbox /></div><figcaption><strong>Measured 2D PSFs across wavelength and depth, normalized to peak intensity.</strong> The stop-band PSFs of Ours are marked with black boxes.</figcaption></figure>
           </div>
           <div class="spec-strip" aria-label="Optical specifications">
             <span><strong>4 mm</strong> focal length</span><span><strong>2.516 mm</strong> aperture</span><span><strong>B 457 / G 530 / R 628 nm</strong> pass-band centers</span><span><strong>B 22 / G 20 / R 28 nm</strong> pass-band bandwidths</span>
